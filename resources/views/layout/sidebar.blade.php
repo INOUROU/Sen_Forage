@@ -16,49 +16,49 @@
         
         <ul class="nav">
             <li class="active">
-                <a href="dashboard.html">
+                <a href="dashboard">
                     <i class="pe-7s-graph"></i>
                     <p><i class="fas fa-columns"></i>Tableau de bord</p>
                 </a>
             </li>
             <li>
-                <a href="user.html">
+                <a href="user">
                     <i class="pe-7s-user"></i>
                     <p><i class="fas fa-user"></i>Gestion des utilisateurs</p>
                 </a>
             </li>
             <li>
-                <a href="table.html">
+                <a href="table">
                     <i class="pe-7s-note2"></i>
                     <p><i class="fas fa-user"></i>Gestion des compteurs</p>
                 </a>
             </li>
             <li>
-                <a href="typography.html">
+                <a href="facture">
                     <i class="pe-7s-news-paper"></i>
                     <p><i class="fas fa-user"></i>Gestion de la facturation</p>
                 </a>
             </li>
             <li>
-                <a href="icons.html">
+                <a href="client">
                     <i class="pe-7s-science"></i>
                     <p><i class="fas fa-user"></i>Gestion des clients</p>
                 </a>
             </li>
             <li>
-                <a href="maps.html">
+                <a href="village">
                     <i class="pe-7s-map-marker"></i>
-                    <p>Maps</p>
+                    <p>Gestion village</p>
                 </a>
             </li>
             <li>
-                <a href="notifications.html">
+                <a href="notifications">
                     <i class="pe-7s-bell"></i>
                     <p>Notifications</p>
                 </a>
             </li>
             <li class="active-pro">
-                <a href="upgrade.html">
+                <a href="upgrade.blade.php">
                     <i class="pe-7s-rocket"></i>
                     <p>Upgrade to PRO</p>
                 </a>
