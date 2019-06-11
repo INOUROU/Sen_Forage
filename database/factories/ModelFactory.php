@@ -151,7 +151,7 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
 $factory->define(App\Agent::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
-        'matricule' => $faker->word,
+        'matricule' => 'AGT',
         'users_id' => function () {
              return factory(App\User::class)->create()->id;
         },
