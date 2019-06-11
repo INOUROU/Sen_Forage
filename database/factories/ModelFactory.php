@@ -1,5 +1,5 @@
 <?php
-
+use \App\Helpers\SnNameGenerator as SnmG;
 $factory->define(App\Region::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
@@ -53,17 +53,18 @@ $factory->define(App\Consommation::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Client::class, function (Faker\Generator $faker) {
+    $role_id=Role::where('name','Gestionnaire')->first()->id;
     return [
-        'uuid' => $faker->uuid,
-        'matricule' => $faker->word,
+      
+        'matricule' => "GEST".$faker->word,
         'village_id' => function () {
              return factory(App\Village::class)->create()->id;
         },
         'gestionnaires_id' => function () {
              return factory(App\Gestionnaire::class)->create()->id;
         },
-        'users_id' => function () {
-             return factory(App\User::class)->create()->id;
+        'users_id' => function () use($role_id){
+             return factory(App\User::class)->create(["role_id"=>$role_id])->id;
         },
     ];
 });
@@ -117,13 +118,13 @@ $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'uuid' => $faker->uuid,
-        'firstname' => $faker->firstName,
+       
+        'firstname' => SnmG::getfirstName,
         'name' => $faker->name,
-        'telephone' => $faker->word,
-        'email' => $faker->safeEmail,
+        'telephone' => $faker->phone Number,
+        'email' =>Str::random(5).".". $faker->safeEmail,
         'email_verified_at' => $faker->dateTimeBetween(),
-        'password' => bcrypt($faker->password),
+        'password' => bcrypt('secret'),
         'roles_id' => function () {
              return factory(App\Role::class)->create()->id;
         },
