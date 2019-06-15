@@ -49,5 +49,4 @@ Auth::routes();
 Route::get('/home' , 'HomeController@index')->name('home');
 Route::resource('villages' , 'VillageController');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

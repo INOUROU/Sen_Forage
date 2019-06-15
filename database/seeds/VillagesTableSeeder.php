@@ -76,8 +76,8 @@ class VillagesTableSeeder extends Seeder
                                 "matricule"=>$village->attributes->id
                             ],["village_id"=>$village_->id,"users_id"=>$user->id,"gestionnaires_id"=>$id_gest]);
                             $client->save();
-                            $village_->chef_id=$client->id;
-                            $village_->save();
+                            $village_ ->chef_id=$client->id;
+                            $village_ ->save();
                             echo "-----village----".$village->nom."  id:".$village->attributes->id.PHP_EOL;
                             //echo("-----village:chef----".$village->chef.PHP_EOL);
                            // usleep(20000);
