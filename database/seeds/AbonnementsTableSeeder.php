@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ComptableTableSeeder extends Seeder
+class AbonnementsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class ComptableTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Comptable::class, 10)->create();
+        //
+        factory(App\Abonnments::class,10)->create();
     }
 }

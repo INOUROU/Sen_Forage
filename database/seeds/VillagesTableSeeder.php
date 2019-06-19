@@ -33,7 +33,7 @@ class VillagesTableSeeder extends Seeder
                         $commune_=App\Commune::firstOrNew(["nom"=>$commune->nom]);
                         $arrondissement_->communes()->save($commune_);
                         foreach ((array)$commune->village as $village) {
-                            if(App\Village::count()<2000){
+                            if(App\Village::count()<25){
                             $village_=App\Village::firstOrNew(["nom"=>$village->nom]);
                             $commune_->villages()->save($village_);
 
@@ -76,18 +76,18 @@ class VillagesTableSeeder extends Seeder
                                 "matricule"=>$village->attributes->id
                             ],["village_id"=>$village_->id,"users_id"=>$user->id,"gestionnaires_id"=>$id_gest]);
                             $client->save();
-                            $village_ ->chef_id=$client->id;
-                            $village_ ->save();
+                            $village_->chef_id=$client->id;
+                            $village_->save();
                             echo "-----village----".$village->nom."  id:".$village->attributes->id.PHP_EOL;
                             //echo("-----village:chef----".$village->chef.PHP_EOL);
                            // usleep(20000);
                         }else{
                             break 5;
+                        }
                     }
                 }
             }
         }
     }
     }
-}
 }

@@ -12,10 +12,10 @@ class TypesTableSeeder extends Seeder
     public function run()
     {
         //
-        $Type1=App\Type::firstOrCreate(["name"=>"Cash"],["uuid"=>(string)Str::uuid()]);
-        $Type2=App\Type::firstOrCreate(["name"=>"Orange Money"],["uuid"=>(string)Str::uuid()]);
-        $Type3=App\Type::firstOrCreate(["name"=>"Visa"],["uuid"=>(string)Str::uuid()]);
-        $Type4=App\Type::firstOrCreate(["name"=>"Cheque"],["uuid"=>(string)Str::uuid()]);
-        $Type5=App\Type::firstOrCreate(["name"=>"wari"],["uuid"=>(string)Str::uuid()]);
+        $type1=App\Type::firstOrCreate(["name"=>"Cash"],["uuid"=>Str::uuid()]);
+        $type2=App\Type::firstOrCreate(["name"=>"OrangeMoney"],["uuid"=>Str::uuid()]);
+        $type3=App\Type::firstOrCreate(["name"=>"Wari"],["uuid"=>Str::uuid()]);
+        $type4=App\Type::firstOrCreate(["name"=>"Visa"],["uuid"=>Str::uuid()]);
+        $type5=App\Type::firstOrCreate(["name"=>"Cheque"],["uuid"=>Str::uuid()]);
     }
 }

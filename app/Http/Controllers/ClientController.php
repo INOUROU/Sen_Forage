@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Village;
+use App\Client;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
-class VillageContoller extends Controller
+
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,13 @@ class VillageContoller extends Controller
      */
     public function index()
     {
-        //
+        return view('clients.index');
     }
-
+    public function list(Request $request)
+   {
+       $clients=Client::with('user')->get();
+       return Datatables::of($clients)->make(true);
+   }
     /**
      * Show the form for creating a new resource.
      *
@@ -33,18 +39,35 @@ class VillageContoller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // public function store(Request $request)
+    // {
+    //     //
+    // }
+
     public function store(Request $request)
-    {
-        //
-    }
+   {
+       //validation d’une requete avant enregistreent des données
+       $this->validate(
+           $request, [
+               'nom' => 'required|string|max:50',
+               'prenom' => 'required|string|max:50',
+               'email' => 'required|email|max:255|unique:users,email',
+               'password' => 'required|string|max:50',
+           ]
+       );
+       return view('clients.index');
+      
+   }
+
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function show(Village $village)
+    public function show(Client $client)
     {
         //
     }
@@ -52,10 +75,10 @@ class VillageContoller extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Village $village)
+    public function edit(Client $client)
     {
         //
     }
@@ -64,10 +87,10 @@ class VillageContoller extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Village  $village
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Village $village)
+    public function update(Request $request, Client $client)
     {
         //
     }
@@ -75,11 +98,13 @@ class VillageContoller extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Village $village)
+    public function destroy(Client $client)
     {
         //
     }
 }
+
+

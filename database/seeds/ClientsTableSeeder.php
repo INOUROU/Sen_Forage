@@ -16,9 +16,9 @@ class ClientsTableSeeder extends Seeder
         $generator=Gen::create();
         factory(App\Client::class,5)->create()->each(function($client,$key) use($generator){
 
-            $id_compteur=factory(App\Compteur::class,5)->create()->id;
+            $id_compteur=factory(App\Compteur::class)->create()->id;
 
-            $id_abonnemnt=factory(App\Abonnement::class,10)->create(["clients_id"=>$client->id,"compteurs_id"=>$id_compteur])->id;
+            $id_abonnemnt=factory(App\Abonnement::class)->create(["clients_id"=>$client->id,"compteurs_id"=>$id_compteur])->id;
 
             $id_facture=factory(App\Facture::class)->create()->id;
             factory(App\Consommation::class,10)->create(["compteurs_id"=>$id_compteur,"factures_id"=>$id_facture]);

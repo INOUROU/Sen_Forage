@@ -10,53 +10,57 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
-                GESTION FORAGE
+                GESTION SEN FORAGE
             </a>
         </div>
         
         <ul class="nav">
             <li class="active">
-                <a href="dashboard">
+                <a href="default">
                     <i class="pe-7s-graph"></i>
-                    <p><i class="fas fa-columns"></i>Tableau de bord</p>
+                    <p><i class="fas fa-columns"></i>Home</p>
                 </a>
             </li>
             <li>
-                <a href="user">
+                <a href="Admin">
                     <i class="pe-7s-user"></i>
-                    <p><i class="fas fa-user"></i>Gestion des utilisateurs</p>
+                    <p><i class="fas fa-user"></i>administrateurs</p>
                 </a>
             </li>
             <li>
-                <a href="table">
+                <a href="compteurs">
                     <i class="pe-7s-note2"></i>
-                    <p><i class="fas fa-user"></i>Gestion des compteurs</p>
+                    <p><i class="fas fa-user"></i>compteurs</p>
                 </a>
             </li>
             <li>
-                <a href="facture">
+                <a href="factures">
                     <i class="pe-7s-news-paper"></i>
-                    <p><i class="fas fa-user"></i>Gestion de la facturation</p>
+                    <p><i class="fas fa-user"></i>facturation</p>
                 </a>
             </li>
             <li>
-                <a href="client">
+                <a href="clients">
                     <i class="pe-7s-science"></i>
-                    <p><i class="fas fa-user"></i>Gestion des clients</p>
+                    <p><i class="fas fa-user"></i>clients</p>
                 </a>
             </li>
             <li>
-                <a href="village">
-                    <i class="pe-7s-map-marker"></i>
-                    <p>Gestion village</p>
+                <a href="{{ route('villages.index')}}">
+                    <i class="pe-1s-map-marker"></i>
+                    <p>villages</p>
                 </a>
             </li>
             <li>
-                <a href="notifications">
+                <a href="abonnements">
                     <i class="pe-7s-bell"></i>
-                    <p>Notifications</p>
+                    <p>Abonnements</p>
                 </a>
             </li>
+                <a href="agents">
+                    <i class="pe-7s-bell"></i>
+                    <p>Agents</p>
+                </a>
             <li class="active-pro">
                 <a href="upgrade.blade.php">
                     <i class="pe-7s-rocket"></i>
