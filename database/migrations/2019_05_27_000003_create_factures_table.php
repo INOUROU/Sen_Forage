@@ -27,6 +27,8 @@ class CreateFacturesTable extends Migration
             $table->dateTime('date_limite')->nullable();
             $table->string('details', 200)->nullable();
             $table->decimal('montant')->nullable();
+            $table->decimal('valeur_totale_consommee')->nullable();
+
             $table->dateTime('debut_consommation')->nullable();
             $table->dateTime('fin_consommation')->nullable();
             $table->softDeletes();

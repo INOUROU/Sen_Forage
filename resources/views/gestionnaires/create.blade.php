@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">villages
+                <p class="card-category">gestionnaires
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
@@ -19,14 +19,14 @@
                 </div>
                 <div class="row pt-5"></div>
                 
-                <form method="POST" action="{{route('villages.store')}}">
+                <form method="POST" action="{{route('gestionnaires.store')}}">
                     {{ csrf_field() }}
                     
                     <input type="hidden" name="village" value="{{$village->id}}" class="form-control" name="inputName" id="inputName" placeholder="">
                     
                     <div class="form-group">
                         <label for="input-nom">Nom</label>
-                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du village">
+                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du gestionnaire">
                         <small id="input-nom-help" class="form-text text-muted">
                             @if ($errors->has('nom'))
                             <div class="alert alert-danger">

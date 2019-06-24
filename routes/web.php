@@ -44,14 +44,37 @@ Route::get('/typography', function () {
     return view('layout.typography');
 });
  */
-Route::get('/clients/selectvillage', function () {
-    return view('clients.selectvillage');
- })->name('clients.selectvillage');
+// Route::get('/clients/selectvillage', function () {
+//     return view('clients.selectvillage');
+//  })->name('clients.selectvillage');
  
  
 
 Auth::routes();
+
+Route::get('/clients/selectvillage', function () {
+    return view('clients.selectvillage');
+ })->name('clients.selectvillage');
+
+ Route::get('/villages/selectvillage', function () {
+    return view('villages.selectvillage');
+ })->name('villages.selectvillage');
+
+ Route::get('/abonnements/selectcompteur', function () {
+    return view('abonnements.selectcompteur');
+ })->name('abonnements.selectcompteur');
+
+ Route::get('/abonnements/selectclient', function () {
+    return view('abonnements.selectclient');
+ })->name('abonnements.selectclient');
+ 
+//  Route::get('/gestionnaires/selectvillage', function () {
+//     return view('gestionnaires.selectvillage');
+//  })->name('gestionnaires.selectvillage');
+
+
 Route::get('/home' , 'HomeController@index')->name('home');
+Route::get('/villages/list', 'VillageController@list')->name('villages.list');
 Route::resource('villages' , 'VillageController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -62,8 +85,28 @@ Route::get('/compteurs/list', 'CompteurController@list')->name('compteurs.list')
 Route::resource('compteurs', 'CompteurController');
 
 Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
-Route::resource('abonnements', 'abonnementController');
+Route::resource('abonnements', 'AbonnementController');
 
+Route::get('/gestionnaires/list', 'GestionnaireController@list')->name('gestionnaires.list');
+Route::resource('gestionnaires', 'GestionnaireController');
+
+Route::get('/administrateurs/list', 'AdministrateurController@list')->name('administrateurs.list');
+Route::resource('administrateurs', 'AdministrateurController');
+
+Route::get('/comptables/list', 'ComptableController@list')->name('comptables.list');
+Route::resource('comptables', 'ComptableController');
+
+Route::get('/agents/list', 'AgentController@list')->name('agents.list');
+Route::resource('agents', 'AgentController');
+
+Route::get('/factures/list', 'FactureController@list')->name('factures.list');
+Route::resource('factures', 'FactureController');
+Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteurs.listfree');
+
+Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');
+Route::resource('consommations', 'ConsommationController');
+
+// Route::resource('consommation', 'consommationController');
 
 // Route::get('/facture', function () {
 //     return view('layout.facture');
@@ -82,4 +125,12 @@ Route::resource('abonnements', 'abonnementController');
 //     return view('layout.notification');
 // });
 
+use Illuminate\Support\Facades\Date;
 
+Route::get('carbon', function () {
+   $date = Date::now();
+   dump($date);
+   $newDate = $date->copy()->addDays(7);
+   dump($newDate);
+}
+);

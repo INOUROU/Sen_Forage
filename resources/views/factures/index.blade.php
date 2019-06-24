@@ -9,8 +9,8 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> Clients
-                      <a href="{{route('clients.selectvillage')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> factures
+                      <a href="{{route('factures.create')}}"><div class="btn btn-warning">Nouveau facture <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))
@@ -20,7 +20,7 @@
                    @endif
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-clients">
+                    <table class="table" id="table-factures">
                       <thead class=" text-primary">
                         <th>
                           ID
@@ -64,14 +64,14 @@
 <!-- Button trigger modal -->
 
 @push('modal')
-<div class="modal " id="modal-delete-client" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="POST" action="" id="form-delete-client">
+<div class="modal " id="modal-delete-facture" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="POST" action="" id="form-delete-facture">
       @csrf
       @method('DELETE')
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Êtes-vous sûr de bien vouloir supprimer ce client ?</h6>
+          <h5 class="modal-title" id="exampleModalLabel">Êtes-vous sûr de bien vouloir supprimer ce facture ?</h6>
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -96,10 +96,10 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-clients').DataTable( { 
+          $('#table-factures').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('clients.list')}}",
+            "ajax": "{{route('factures.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
                     { data: 'user.name', name: 'user.name' },
@@ -112,10 +112,10 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('clients.destroy',':id')!!}".replace(':id', data.id);
+                        url_e =  "{!! route('factures.edit',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('factures.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="fa fa-edit"></i></a>'+
-                        '<div class="btn btn-danger delete btn-delete-client" data-href='+url_d+'><i class="fa fa-trash"></i></div>';
+                        '<div class="btn btn-danger delete btn-delete-facture" data-href='+url_d+'><i class="fa fa-trash"></i></div>';
                         
 
                         },
@@ -124,23 +124,23 @@
                     // {
                     //     "data": null,
                     //     "render": function (data, type, row) {
-                    //         url =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
+                    //         url =  "{!! route('factures.edit',':id')!!}".replace(':id', data.id);
                     //         return check_status(data,url);
                     //     },
                     //     "targets": 1
                     // }
                 ],
           });
-          $("#table-clients").off('click','.btn-delete-client').on('click','.btn-delete-client',function(){
+          $("#table-factures").off('click','.btn-delete-facture').on('click','.btn-delete-facture',function(){
               var href=$(this).data('href');
-              $("#form-delete-client").attr("action",href);
-                $("#modal-delete-client").modal();
+              $("#form-delete-facture").attr("action",href);
+                $("#modal-delete-facture").modal();
               
-      //     $('#table-clients').off('click', '.btn_delete_client').on('click', '.btn_delete_client',
+      //     $('#table-factures').off('click', '.btn_delete_facture').on('click', '.btn_delete_facture',
       //  function() {
       //    var href=$(this).data('href');
-      //    $('#form-delete-client').attr('action', href);
-      //    $('#modal_delete_client').modal();
+      //    $('#form-delete-facture').attr('action', href);
+      //    $('#modal_delete_facture').modal();
       //  });
 
 

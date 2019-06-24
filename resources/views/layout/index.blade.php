@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -104,11 +105,9 @@
     </div>
 
     <div class="main-panel">
-       <?php include("sidebar.blade.php") ?>
-       <?php include("main.blade.php") ?>
-
-
        
+        <?php include("sidebar.blade.php") ?>
+        <?php include("main.blade.php") ?>
 
 
         <footer class="footer">

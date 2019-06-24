@@ -24,6 +24,12 @@ class CompteurController extends Controller
         $compteurs = Compteur::all()->paginate(10);
         return view('compteurs.index',compact('compteurs'));    }
 
+        public function listfree(){
+            $compteurs=Compteur::doesntHave('abonnement')->get();
+            return DataTables::of($compteurs)->make(true);
+     }
+     
+
    /*  public function list(Request $request)
    {
        $compteurs=Compteur::with('user')->get();

@@ -42,6 +42,7 @@ class Client extends Eloquent
 	protected $fillable = [
 		'uuid',
 		'matricule',
+		'factures',
 		'village_id',
 		'gestionnaires_id',
 		'users_id'
@@ -60,6 +61,11 @@ class Client extends Eloquent
 	public function village()
 	{
 		return $this->belongsTo(\App\Village::class);
+	}
+
+	public function factures()
+	{
+		return $this->hasMany(\App\Facture::class);
 	}
 
 	public function abonnements()

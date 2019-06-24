@@ -16,6 +16,7 @@
 </body>
 
 <!--   Core JS Files   -->
+@stack('modal')
 @include("layout.script")
 
 </html>

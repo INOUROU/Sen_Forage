@@ -32,6 +32,10 @@ class Facture extends Eloquent
 {
 	use \Illuminate\Database\Eloquent\SoftDeletes;use \App\Helpers\UuidForKey;
 
+
+	protected $appends = [
+		'user'
+	];
 	protected $casts = [
 		'montant' => 'float'
 	];
@@ -46,6 +50,7 @@ class Facture extends Eloquent
 		'uuid',
 		'date_limite',
 		'details',
+		'client',
 		'montant',
 		'debut_consommation',
 		'fin_consommation'
@@ -59,5 +64,13 @@ class Facture extends Eloquent
 	public function reglements()
 	{
 		return $this->hasMany(\App\Reglement::class, 'factures_id');
+	}
+
+	public function client()
+	{
+		return $this->belongsTo(\App\Client::class, 'factures_id');
+	} 
+	public function getUserAttribute(){
+		return $this->consommations->first()->compteur->abonnement->client->user;
 	}
 }

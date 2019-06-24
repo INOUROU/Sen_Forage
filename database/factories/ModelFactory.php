@@ -154,12 +154,22 @@ $factory->define(App\Commune::class, function (Faker\Generator $faker) {
     ];
 });
 
+// $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
+//     return [
+//         'uuid' => $faker->uuid,
+//         'matricule' => $faker->word,
+//         'users_id' => function () {
+//              return factory(App\User::class)->create()->id;
+//         },
+//     ];
+// });
+
 $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
+    $role_id=App\Role::where('name','Comptable')->first()->id;
     return [
-        'uuid' => $faker->uuid,
-        'matricule' => $faker->word,
-        'users_id' => function () {
-             return factory(App\User::class)->create()->id;
+        'matricule' => "COMPT".$faker->word,
+        'users_id' => function () use($role_id) {
+             return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
         },
     ];
 });
@@ -239,7 +249,7 @@ $factory->define(App\Administrateur::class, function (Faker\Generator $faker) {
 $factory->define(App\Facture::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
-        'date_limite' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 month', $timezone = null),
+        'date_limite' => $faker->dateTimeBetween($startDate = 'now', $endDate = '1 month', $timezone = null),
         'details' => $faker->text($maxNbChars = 150),
         'montant' => $faker->numberBetween(1000,1000000),
         'debut_consommation' => $faker->dateTimeBetween($startDate = '-10 month', $endDate = 'now', $timezone = null),
