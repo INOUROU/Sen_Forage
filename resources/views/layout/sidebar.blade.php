@@ -65,6 +65,12 @@
                         <p>agents</p>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('users.index')}}">
+                        <i class="pe-7s-user"></i>
+                        <p>users</p>
+                    </a>
+                </li>
             {{-- <li>
                     <a href="agents">
                         <i class="pe-7s-note2"></i>

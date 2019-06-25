@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Consommation;
 use Illuminate\Http\Request;
-
+use Yajra\Datatables\Datatables;
 class ConsommationController extends Controller
 {
+    public function list(Request $request)
+    {
+        $consommations=Consommation::with('user')->get();
+        return Datatables::of($consommations)->make(true);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,7 @@ class ConsommationController extends Controller
      */
     public function index()
     {
-        //
+        return view('consommations.index');
         
      
      

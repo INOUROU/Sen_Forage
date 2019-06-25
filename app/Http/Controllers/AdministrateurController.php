@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Administrateur;
 use Illuminate\Http\Request;
-
+use Yajra\Datatables\Datatables;
 class AdministrateurController extends Controller
 {
+    public function list(Request $request)
+    {
+        $administrateurs=Administrateur::with('user')->get();
+        return Datatables::of($administrateurs)->make(true);
+    }
+      
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class AdministrateurController extends Controller
      */
     public function index()
     {
-        //
+        return view('administrateurs.index');
     }
 
     /**

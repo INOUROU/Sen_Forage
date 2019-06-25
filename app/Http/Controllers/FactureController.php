@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Facture;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -10,7 +8,7 @@ class FactureController extends Controller
     public function list(Request $request)
     {
         $factures=Facture::get();
-        return Datatables::of($factures)->make(true);
+        return DataTables::of($factures)->make(true);
     }
     /**
      * Display a listing of the resource.

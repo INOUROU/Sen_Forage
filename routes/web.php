@@ -60,7 +60,7 @@ Route::get('/clients/selectvillage', function () {
     return view('villages.selectvillage');
  })->name('villages.selectvillage');
 
- Route::get('/abonnements/selectcompteur', function () {
+ Route::get('/abonnements/compteur', function () {
     return view('abonnements.selectcompteur');
  })->name('abonnements.selectcompteur');
 
@@ -87,6 +87,9 @@ Route::resource('compteurs', 'CompteurController');
 Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
 Route::resource('abonnements', 'AbonnementController');
 
+Route::get('/users/list', 'UserController@list')->name('users.list');
+Route::resource('users', 'UserController');
+
 Route::get('/gestionnaires/list', 'GestionnaireController@list')->name('gestionnaires.list');
 Route::resource('gestionnaires', 'GestionnaireController');
 
@@ -105,6 +108,26 @@ Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteur
 
 Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');
 Route::resource('consommations', 'ConsommationController');
+
+
+
+
+Route::get('loginfor/{rolename?}',function($rolename=null){
+    if(!isset($rolename)){
+        return view('auth.loginfor');
+    }else
+    { 
+        $role=App\Role::where('name',$rolename)->first();
+        if($role){
+            $user=$role->users()->first();
+            Auth::login($user,true);
+            return redirect()->route('home');
+        
+ } 
+ }
+ return redirect()->route('login');
+ })->name('loginfor');
+ 
 
 // Route::resource('consommation', 'consommationController');
 

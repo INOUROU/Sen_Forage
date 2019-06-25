@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Abonnement;
+use App\abonnement;
 use Illuminate\Http\Request;
 use DataTables;
-class AbonnementController extends Controller
+class abonnementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class AbonnementController extends Controller
     }
     public function list()
     {
-        $abonnements=Abonnement::with(['client.user','compteur'])->get();
+        $abonnements=abonnement::with(['client.user','compteur'])->get();
         return DataTables::of($abonnements)->make(true);
     }
     // public function list(){
-    //     $abonnements=Abonnement::with('client.user')->get();
+    //     $abonnements=abonnement::with('client.user')->get();
     //     return DataTables::of($abonnements)->make(true);
     // }
     public function selectclient()
@@ -74,7 +74,7 @@ class AbonnementController extends Controller
             return redirect()->route('abonnements.index')->with(['message'=>$message]);
 
         }
-        $abonnement=Abonnement::create([
+        $abonnement=abonnement::create([
             "clients_id"=>$request->input('client'),
             "compteurs_id"=>$request->input('compteur'),
             "details"=>$request->input('details'),
@@ -91,10 +91,10 @@ class AbonnementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function show(Abonnement $abonnement)
+    public function show(abonnement $abonnement)
     {
         //
         $compteur=$abonnement->compteur;
@@ -105,10 +105,10 @@ class AbonnementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Abonnement $abonnement)
+    public function edit(abonnement $abonnement)
     {
         //
     }
@@ -117,10 +117,10 @@ class AbonnementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Abonnement $abonnement)
+    public function update(Request $request, abonnement $abonnement)
     {
         //
     }
@@ -128,10 +128,10 @@ class AbonnementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Abonnement  $abonnement
+     * @param  \App\abonnement  $abonnement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Abonnement $abonnement)
+    public function destroy(abonnement $abonnement)
     {
         //
     }

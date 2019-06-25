@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Agent;
+use App\User;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-class AgentController extends Controller
+
+class UserController extends Controller
 {
     public function list(Request $request)
     {
-        $agents=Agent::with('user')->get();
-        return Datatables::of($agents)->make(true);
+        $users=User::with('user')->get();
+        return Datatables::of($users)->make(true);
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +20,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('agents.index');
+        return view('users.index');
     }
 
     /**
@@ -46,10 +47,10 @@ class AgentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Agent  $agent
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Agent $agent)
+    public function show(User $user)
     {
         //
     }
@@ -57,10 +58,10 @@ class AgentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Agent  $agent
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agent $agent)
+    public function edit(User $user)
     {
         //
     }
@@ -69,10 +70,10 @@ class AgentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agent  $agent
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agent $agent)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -80,10 +81,10 @@ class AgentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Agent  $agent
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agent $agent)
+    public function destroy(User $user)
     {
         //
     }

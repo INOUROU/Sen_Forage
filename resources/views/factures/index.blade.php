@@ -26,17 +26,24 @@
                           ID
                         </th>
                         <th>
-                          Nom
+                         Date limite
                         </th>
                         <th>
-                            Prenom
+                            valeur totale consommée
                         </th>
                         <th>
-                          Email
+                          Debut consommation
                         </th>
                         <th>
-                          Action
+                          Fin consommation
                           </th>
+                         
+                            <th>
+                             Montants
+                              </th>
+                              <th>
+                                Details
+                                </th>
                       </thead>
                       <tbody>
                           
@@ -99,12 +106,15 @@
           $('#table-factures').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('factures.list')}}",
+            "ajax": "{{route('factures.create')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' },
+                    { data: 'date_limite', name: 'date_limite' },
+                    { data: 'valeur_totale_consommee', name: 'valeur_totale_consommee' },
+                    { data: 'debut_consommation', name: 'debut_consommation' },
+                    { data: 'fin_consommation', name: 'fin_consommation' },
+                    { data: 'montant', name: 'montant' },
+                    { data: 'details', name: 'details' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -119,7 +129,7 @@
                         
 
                         },
-                        "targets": 4
+                        "targets": 6
                         },
                     // {
                     //     "data": null,
