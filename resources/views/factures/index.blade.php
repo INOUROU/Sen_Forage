@@ -28,9 +28,9 @@
                         <th>
                          Date limite
                         </th>
-                        <th>
+                    {{--     <th>
                             valeur totale consommée
-                        </th>
+                        </th> --}}
                         <th>
                           Debut consommation
                         </th>
@@ -44,6 +44,9 @@
                               <th>
                                 Details
                                 </th>
+                                <th>
+                                  Action
+                                  </th>
                       </thead>
                       <tbody>
                           
@@ -106,11 +109,11 @@
           $('#table-factures').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('factures.create')}}",
+            "ajax": "{{route('factures.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
                     { data: 'date_limite', name: 'date_limite' },
-                    { data: 'valeur_totale_consommee', name: 'valeur_totale_consommee' },
+                   // { data: 'valeur_totale_consommee', name: 'valeur_totale_consommee' },
                     { data: 'debut_consommation', name: 'debut_consommation' },
                     { data: 'fin_consommation', name: 'fin_consommation' },
                     { data: 'montant', name: 'montant' },

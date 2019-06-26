@@ -83,6 +83,7 @@ Route::resource('clients', 'ClientController');
 
 Route::get('/compteurs/list', 'CompteurController@list')->name('compteurs.list');
 Route::resource('compteurs', 'CompteurController');
+Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteurs.listfree');
 
 Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
 Route::resource('abonnements', 'AbonnementController');
@@ -102,9 +103,10 @@ Route::resource('comptables', 'ComptableController');
 Route::get('/agents/list', 'AgentController@list')->name('agents.list');
 Route::resource('agents', 'AgentController');
 
+
 Route::get('/factures/list', 'FactureController@list')->name('factures.list');
 Route::resource('factures', 'FactureController');
-Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteurs.listfree');
+
 
 Route::get('/consommations/list/{abonnement?}','ConsommationController@list')->name('consommations.list');
 Route::resource('consommations', 'ConsommationController');

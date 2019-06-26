@@ -22,13 +22,18 @@ class CompteurController extends Controller
     public function index()
     {
         $compteurs = Compteur::all()->paginate(10);
-        return view('compteurs.index',compact('compteurs'));    }
+        return view('compteurs.index',compact('compteurs'));  
+      }
 
         public function listfree(){
             $compteurs=Compteur::doesntHave('abonnement')->get();
             return DataTables::of($compteurs)->make(true);
      }
-     
+     public function list()
+    {
+        $compteurs=Compteur::with('abonnement')->get();
+        return Datatables::of($compteurs)->make(true);
+    }
 
    /*  public function list(Request $request)
    {

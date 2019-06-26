@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <h3 class="card-title">Enregistrement</h3>
-                <p class="card-category">Compteurs
+                <p class="card-category">compteurs
                     {{-- <a target="_blank" href="#">Robert McIntosh</a>. Please checkout the --}}
                     {{-- <a href="#" target="_blank">full documentation.</a> --}}
                 </p>
@@ -13,8 +13,8 @@
             <div class="card-body">
                 <div class="row pt-5 pl-5">
                     <h4>
-                        compteur: {{$compteur->nom ?? 'Aucun compteur choisi'}}<br/>
-                        Commune: {{$compteur->commune->nom ?? ''}}
+                        Village: {{$village->nom ?? 'Aucun village choisi'}}<br/>
+                        Commune: {{$village->commune->nom ?? ''}}
                     </h4>
                 </div>
                 <div class="row pt-5"></div>
@@ -22,11 +22,11 @@
                 <form method="POST" action="{{route('compteurs.store')}}">
                     {{ csrf_field() }}
                     
-                    <input type="hidden" name="compteur" value="{{$compteur->id}}" class="form-control" name="inputName" id="inputName" placeholder="">
+                    <input type="hidden" name="village" value="{{$village->id}}" class="form-control" name="inputName" id="inputName" placeholder="">
                     
                     <div class="form-group">
                         <label for="input-nom">Nom</label>
-                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du client">
+                        <input type="text" name="nom" class="form-control" id="input-nom" aria-describedby="emailHelp" placeholder="Nom du compteur">
                         <small id="input-nom-help" class="form-text text-muted">
                             @if ($errors->has('nom'))
                             <div class="alert alert-danger">

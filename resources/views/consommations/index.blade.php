@@ -26,14 +26,20 @@
                           ID
                         </th>
                         <th>
-                          Nom
+                         Valeur
                         </th>
                         <th>
-                            Prenom
+                           Date
                         </th>
                         <th>
-                          Email
+                         ID compteur
                         </th>
+                        <th>
+                          ID facture
+                         </th>
+                         <th>
+                          ID agent
+                         </th>
                         <th>
                           Action
                           </th>
@@ -102,9 +108,11 @@
             "ajax": "{{route('consommations.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' },
+                    { data: 'valeur', name: 'valeur' },
+                    { data: 'date', name: 'date' },
+                    { data: 'compteurs_id', name: 'compteurs_id' },
+                    { data: 'factures_id', name: 'factures_id' },
+                    { data: 'agents_id', name: 'agents_id' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -119,7 +127,7 @@
                         
 
                         },
-                        "targets": 4
+                        "targets": 6
                         },
                     // {
                     //     "data": null,

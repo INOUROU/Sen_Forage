@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckAge
+class CheckRoles
 {
     /**
      * Handle an incoming request.
@@ -13,14 +13,15 @@ class CheckAge
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$roles)
     {
-        if (! $request->user()->hasAnyRole($rolesArray)) {
+        $rolesArray=explode("|", $roles);
+        if (! $request->user()->hasAnyRoles($rolesArray)) {
             return redirect()->route('home')->with(
                 ['permission'=>"Action non autorisee"]
             );
         }
-
+        
         return $next($request);
     }
 }

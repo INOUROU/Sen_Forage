@@ -10,7 +10,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> users
-                      <a href="{{route('users.list')}}"><div class="btn btn-warning">Nouveau user <i class="material-icons">add</i></div></a> 
+                      <a href="{{route('users.create')}}"><div class="btn btn-warning">Nouveau user <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))
@@ -30,6 +30,9 @@
                         </th>
                         <th>
                             Prenom
+                        </th>
+                        <th>
+                          Telephone
                         </th>
                         <th>
                           Email
@@ -102,9 +105,11 @@
             "ajax": "{{route('users.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' },
+                    { data: 'name', name: 'name' },
+                    { data: 'firstname', name: 'firstname' },
+                    { data: 'telephone', name: 'telephone' },
+                    { data: 'email', name: 'email' },
+                  /*   { data: 'roles_id', name: 'roles_id' }, */
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -119,7 +124,7 @@
                         
 
                         },
-                        "targets": 4
+                        "targets": 5
                         },
                     // {
                     //     "data": null,

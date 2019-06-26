@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function list(Request $request)
     {
-        $users=User::with('user')->get();
+        $users=User::get();
         return Datatables::of($users)->make(true);
     }
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**

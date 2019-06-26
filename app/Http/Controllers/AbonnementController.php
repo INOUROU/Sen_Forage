@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\abonnement;
+use App\Abonnement;
 use Illuminate\Http\Request;
 use DataTables;
 class abonnementController extends Controller
@@ -19,7 +19,7 @@ class abonnementController extends Controller
     }
     public function list()
     {
-        $abonnements=abonnement::with(['client.user','compteur'])->get();
+        $abonnements=Abonnement::with(['client.user','compteur'])->get();
         return DataTables::of($abonnements)->make(true);
     }
     // public function list(){

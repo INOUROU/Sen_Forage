@@ -26,8 +26,8 @@ class CreateFacturesTable extends Migration
             $table->char('uuid', 36);
             $table->dateTime('date_limite')->nullable();
             $table->string('details', 200)->nullable();
-            $table->decimal('montant')->nullable();
-            $table->decimal('valeur_totale_consommee')->nullable();
+            $table->double('montant')->nullable();
+            $table->bigInteger('valeur_totale_consommee')->nullable();
 
             $table->dateTime('debut_consommation')->nullable();
             $table->dateTime('fin_consommation')->nullable();
@@ -36,7 +36,7 @@ class CreateFacturesTable extends Migration
         });
     }
 
-    /**
+    /**s
      * Reverse the migrations.
      *
      * @return void
