@@ -10,7 +10,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> administrateurs
-                      <a href="{{route('administrateurs.list')}}"><div class="btn btn-warning">Nouveau administrateur <i class="material-icons">add</i></div></a> 
+                      <a href="{{route('administrateurs.create')}}"><div class="btn btn-warning">Nouveau administrateur <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))

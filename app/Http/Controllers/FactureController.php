@@ -28,8 +28,8 @@ class FactureController extends Controller
     public function create()
     {
         
-        $village_id=$request->input('village');
-       $village=\App\Village::find($village_id);
+    //     $village_id=$request->input('village');
+    //    $village=\App\Village::find($village_id);
        return view('factures.create',compact('village'));
    
     }

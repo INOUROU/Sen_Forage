@@ -10,7 +10,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> consommations
-                      <a href="{{route('consommations.selectvillage')}}"><div class="btn btn-warning">Nouveau consommation <i class="material-icons">add</i></div></a> 
+                      <a href="{{route('consommations.create')}}"><div class="btn btn-warning">Nouveau consommation <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))
@@ -127,7 +127,7 @@
                         
 
                         },
-                        "targets": 6
+                        "targets": 7
                         },
                     // {
                     //     "data": null,

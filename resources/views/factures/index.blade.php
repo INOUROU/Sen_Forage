@@ -143,6 +143,11 @@
                     //     "targets": 1
                     // }
                 ],
+                dom: 'lBfrtip',
+                 buttons: [
+                 'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+         "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
           });
           $("#table-factures").off('click','.btn-delete-facture').on('click','.btn-delete-facture',function(){
               var href=$(this).data('href');

@@ -12,10 +12,10 @@
             </div>
             <div class="card-body">
                 <div class="row pt-5 pl-5">
-                    <h4>
+                    {{-- <h4>
                         Village: {{$village->nom ?? 'Aucun village choisi'}}<br/>
                         Commune: {{$village->commune->nom ?? ''}}
-                    </h4>
+                    </h4> --}}
                 </div>
                 <div class="row pt-5"></div>
                 

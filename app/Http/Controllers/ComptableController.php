@@ -30,7 +30,7 @@ class ComptableController extends Controller
      */
     public function create()
     {
-        //
+        return view('comptables.create');
     }
 
     /**

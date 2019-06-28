@@ -12,17 +12,17 @@
             </div>
             <div class="card-body">
                 <div class="row pt-5 pl-5">
-                    <h4>
+                    {{-- <h4>
                         Village: {{$village->nom ?? 'Aucun village choisi'}}<br/>
                         Commune: {{$village->commune->nom ?? ''}}
-                    </h4>
+                    </h4> --}}
                 </div>
                 <div class="row pt-5"></div>
                 
                 <form method="POST" action="{{route('factures.store')}}">
                     {{ csrf_field() }}
                     
-                    <input type="hidden" name="village" value="{{$village->id}}" class="form-control" name="inputName" id="inputName" placeholder="">
+                    {{-- <input type="hidden" name="village" value="{{$village->id}}" class="form-control" name="inputName" id="inputName" placeholder=""> --}}
                     
                     <div class="form-group">
                         <label for="input-nom">Nom</label>

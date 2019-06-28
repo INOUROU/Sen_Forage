@@ -10,7 +10,7 @@
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
                   <p class="card-category"> comptables
-                      <a href="{{route('comptables.list')}}"><div class="btn btn-warning">Nouveau comptable <i class="material-icons">add</i></div></a> 
+                      <a href="{{route('comptables.create')}}"><div class="btn btn-warning">Nouveau comptable <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))

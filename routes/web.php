@@ -12,8 +12,12 @@
 */
 
 Route::get('/default', function () {
-    return view('layout.default');
+    return view('layout.acceuil.index');
 });
+
+// Route::get('/index', function () {
+//     return view('layout.acceuil.index');
+// });
 
 Route::get('/test', function () {
     return view('layout.default');

@@ -31,7 +31,7 @@ class AdministrateurController extends Controller
      */
     public function create()
     {
-        //
+        return view('administrateurs.create');
     }
 
     /**

@@ -40,7 +40,7 @@ class GestionnaireController extends Controller
         $village=\App\Village::find($village_id); */
 
        /*  return view('clients.create',compact('village')); */
-    
+       return view('gestionnaires.create');
     }
 
     /**

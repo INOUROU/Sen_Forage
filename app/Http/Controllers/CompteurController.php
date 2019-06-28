@@ -48,7 +48,7 @@ class CompteurController extends Controller
      */
     public function create()
     {
-        //
+        return view('compteurs.create',compact('compteurs'));  
     }
 
     /**

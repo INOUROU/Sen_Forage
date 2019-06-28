@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 class ConsommationController extends Controller
 {
-    public function list(Request $request)
-    {
-        $consommations=Consommation::with('user')->get();
-        return Datatables::of($consommations)->make(true);
-    }
+    // public function list(Request $request)
+    // {
+    //     $consommations=Consommation::with('user')->get();
+    //     return Datatables::of($consommations)->make(true);
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -44,8 +44,8 @@ class ConsommationController extends Controller
     public function create()
     {
         //
-        $client=\App\Client::find($request->input('client'));
-        $compteur=\App\Compteur::find($request->input('compteur'));
+        // $consommation=\App\Consommation::find($request->input('client'));
+        // $compteur=\App\Compteur::find($request->input('compteur'));
 
         return view('consommations.create',compact(['client','compteur']));
 
